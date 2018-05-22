@@ -13,6 +13,8 @@
 </head>
 <body>
 
+
+@section('navbar')
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -28,7 +30,11 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
+@endsection
+@yield('navbar')
+{{--@show--}}
 
+@section('header')
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
@@ -37,12 +43,15 @@
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
+@show
+
 
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-
         <div class="col-md-3">
+
+            @endsection('sidebar')
             <div class="sidebar-module">
                 <h2>Archives</h2>
                 <ol class="list-unstyled">
@@ -60,8 +69,11 @@
                     <li><a href="#">April 2013</a></li>
                 </ol>
             </div>
+            @show
+
         </div>
 
+        @endsection('content')
         <div class="col-md-9">
 
             <div class="col-md-6">
@@ -90,6 +102,8 @@
             </div><!-- /.blog-post -->
 
         </div>
+        @section
+
     </div>
 
     <hr>
