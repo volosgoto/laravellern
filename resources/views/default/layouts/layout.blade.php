@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel FrameWork Theory</title>
+    {{--<title>Laravel FrameWork Theory</title>--}}
+    {{--<title><?php echo $title ?></title>--}}
+    <title>{{$title}}</title>
+
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -22,10 +26,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo route('home'); ?>">Home</a></li>
-                <li><a href="<?php echo route('about'); ?>">About</a></li>
-                <li><a href="<?php echo route('articles'); ?>">Articles</a></li>
-                <li><a href="<?php echo route('article', ['id' => 10]); ?>">Article</a></li>
+                <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('about') }}">About</a></li>
+                <li><a href="{{ route('articles') }}">Articles</a></li>
+                <li><a href="{{ route('article', ['id' => 10]) }}">Article</a></li>
+                <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
         </div><!--/.navbar-collapse -->
     </div>
@@ -38,7 +43,10 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1><?php echo $title;?></h1>
+
+        <h1> {{ date("Y.M.d"),time() }} </h1>
+        <h1> {{ $title }} </h1>
+
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
@@ -51,7 +59,7 @@
     <div class="row">
         <div class="col-md-3">
 
-            @endsection('sidebar')
+            @section('sidebar')
             <div class="sidebar-module">
                 <h2>Archives</h2>
                 <ol class="list-unstyled">
@@ -73,36 +81,42 @@
 
         </div>
 
-        @endsection('content')
-        <div class="col-md-9">
+        {{--From index.blade.php--}}
+        {{--@section('content')--}}
+        {{--<div class="col-md-9">--}}
 
-            <div class="col-md-6">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-6">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
+            {{--<div class="col-md-6">--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>--}}
+                {{--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-6">--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>--}}
+                {{--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>--}}
+            {{--</div>--}}
 
-            <div style="clear:both"></div>
-            <div class="blog-post">
-                <div class="page-header">
-                    <h1>Sample blog post</h1>
-                </div>
+            {{--<div style="clear:both"></div>--}}
+            {{--<div class="blog-post">--}}
+                {{--<div class="page-header">--}}
+                    {{--<h1>Sample blog post</h1>--}}
+                {{--</div>--}}
 
-                <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-                <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                <blockquote>
-                    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </blockquote>
-                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            </div><!-- /.blog-post -->
+                {{--<p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>--}}
+                {{--<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>--}}
+                {{--<blockquote>--}}
+                    {{--<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>--}}
+                {{--</blockquote>--}}
+                {{--<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>--}}
+            {{--</div><!-- /.blog-post -->--}}
 
-        </div>
-        @section
+        {{--</div>--}}
+        {{--@show--}}
+
+
+        {{--Content--}}
+        @yield ('content')
+
 
     </div>
 

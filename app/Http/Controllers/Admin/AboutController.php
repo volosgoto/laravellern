@@ -8,7 +8,13 @@ use App\Http\Controllers\Controller;
 class AboutController extends Controller
 {
         public function about() {
-            echo 'Hello About';
-            return;
+            $data = ['title' => 'Page About'];
+
+
+            if (view()->exists('default.about')) {
+                $view = view('default.about', $data)->render();
+//               return view('default.index', $data);
+                return $view;
+            } abort(404);
         }
 }

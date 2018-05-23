@@ -20,6 +20,8 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@show']);
 Route::get('/about', ['as' => 'about', 'uses' => 'Admin\AboutController@about']);
 Route::get('/articles', ['as' => 'articles', 'uses' => 'IndexController@show']);
 Route::get('/article/{id}', ['as'=>'article', 'uses' => 'IndexController@show']);
+Route::match(['get','post'],'/contact/{name?}',['uses'=>'Admin\ContactController@show','as'=>'contact']);
+//Route::match(['get','post'],'/contact',['uses'=>'Admin\ContactController@show','as'=>'contact']);
 
 
 //Route::get('/page', function () {
@@ -34,6 +36,7 @@ Route::get('/article/{id}', ['as'=>'article', 'uses' => 'IndexController@show'])
 //});
 //
 //
+
 //Route::post('/comments', function (){
 //    var_dump($_POST);
 //});
