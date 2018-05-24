@@ -5,7 +5,7 @@
 <div class="col-md-9">
 
 		<pre>
-		{{--{{ print_r(Session::all()) }}--}}
+		{{ print_r(Session::all()) }}
 		</pre>
 	
 	<div class="">
